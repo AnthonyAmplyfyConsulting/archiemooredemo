@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#094635"><meta name="description" content="Pull the lever on Archie Moore’s Wing Slots and reveal your reward. An interactive branded demo.">
+<title>Archie Moore’s | Wing Slots</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%23094635'/%3E%3Ctext x='32' y='44' text-anchor='middle' fill='%23fff4d7' font-family='Georgia' font-size='40'%3EA%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="experience" aria-label="Archie Moore’s Wing Slots">
+ <h1 class="sr-only">Archie Moore’s Wing Slots</h1>
+ <p class="sr-only" id="instructions">Pull the lever down and release to spin. You can also tap the lever or press Enter. Three matching symbols wins 15% off. Two matching symbols wins 10% off. No match wins 5% off. Every spin wins.</p>
+ <div class="machine idle" id="machine">
+  <svg class="artwork" viewBox="0 0 798 1202" aria-hidden="true">
+   <defs>
+    <filter id="soft"><feGaussianBlur stdDeviation="23"/></filter>
+    <mask id="clean-lever"><rect width="798" height="1202" fill="white"/><circle cx="730" cy="432" r="52" fill="black"/><path d="M711 472L744 478L697 711L670 701Z" fill="black"/><circle cx="735" cy="842" r="45" fill="black"/></mask>
+   </defs>
+   <image href="assets/machine.webp" width="798" height="1202" filter="url(#soft)"/>
+   <image href="assets/machine.webp" width="798" height="1202" mask="url(#clean-lever)"/>
+  </svg>
+  <div class="cabinet-sheen" aria-hidden="true"></div>
+  <div class="reels" id="reels" aria-hidden="true"><div class="reel"><div class="track"></div></div><div class="reel"><div class="track"></div></div><div class="reel"><div class="track"></div></div></div>
+  <svg class="mechanism" viewBox="0 0 798 1202" aria-hidden="true">
+   <defs>
+    <linearGradient id="chrome"><stop stop-color="#432710"/><stop offset=".2" stop-color="#f6e9ce"/><stop offset=".45" stop-color="#9a8e7f"/><stop offset=".7" stop-color="#fff7dd"/><stop offset="1" stop-color="#4c2c16"/></linearGradient>
+    <radialGradient id="knob" cx="32%" cy="25%"><stop stop-color="#ffad63"/><stop offset=".15" stop-color="#ff6237"/><stop offset=".45" stop-color="#e6370d"/><stop offset=".8" stop-color="#a62009"/><stop offset="1" stop-color="#5e1809"/></radialGradient>
+    <filter id="glow" x="-200%" y="-200%" width="500%" height="500%"><feGaussianBlur stdDeviation="9"/></filter>
+    <radialGradient id="warm-filament"><stop stop-color="#fffbe1"/><stop offset=".35" stop-color="#fff2b5"/><stop offset=".75" stop-color="#ffbf49"/><stop offset="1" stop-color="#f5a12b" stop-opacity="0"/></radialGradient>
+    <radialGradient id="lamp-warmth"><stop stop-color="#ffd783" stop-opacity=".45"/><stop offset=".4" stop-color="#ffc35e" stop-opacity=".16"/><stop offset="1" stop-color="#ffd783" stop-opacity="0"/></radialGradient>
+   </defs>
+   <g class="room-light"><ellipse cx="152" cy="73" rx="133" ry="89" fill="url(#lamp-warmth)"/><ellipse cx="635" cy="72" rx="130" ry="90" fill="url(#lamp-warmth)"/></g>
+   <g id="bulbs"></g>
+   <circle class="lever-aura" cx="730" cy="432" r="52" fill="none" stroke="#ffdd9b" stroke-width="2"/>
+   <g id="moving-lever"><line id="shaft-shadow" x1="680" y1="721" x2="730" y2="432" stroke="#30190e" stroke-width="23"/><line id="shaft" x1="680" y1="721" x2="730" y2="432" stroke="url(#chrome)" stroke-width="16"/><circle id="ball-shadow" cx="732" cy="437" r="47" fill="#190b04" opacity=".35"/><circle id="ball" cx="730" cy="432" r="46" fill="url(#knob)" stroke="#e99f61" stroke-width="1.5"/><ellipse id="shine" cx="717" cy="410" rx="15" ry="9" fill="#fff8d5" opacity=".6" transform="rotate(-28 717 410)"/></g>
+  </svg>
+  <button class="lever-hit" id="lever" aria-describedby="instructions" aria-label="Pull the lever down to spin. Or tap to spin." type="button"></button>
+  <div class="spin-status" id="spin-status" aria-hidden="true"></div>
+ </div>
+ <div class="demo-footer"><span class="demo-dot"></span> Interactive demo <span class="footer-divider">/</span> No purchase needed <button id="sound" class="sound" aria-label="Turn sound on" aria-pressed="false" type="button"><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5Z"/><path class="sound-wave" d="M15 8c3 2 3 6 0 8m3-11c5 4 5 10 0 14"/><path class="sound-off" d="m16 9 5 6m0-6-5 6"/></svg></button></div>
+ <p id="announcement" class="sr-only" role="status" aria-live="polite"></p>
+</main>
+<dialog id="reward" aria-labelledby="reward-title" aria-describedby="reward-description">
+ <div class="coupon-wrap">
+  <button id="close" class="close" aria-label="Close reward coupon" type="button">×</button>
+  <div class="coupon-logo" aria-hidden="true"><svg viewBox="284 0 227 210"><image href="assets/machine.webp" width="798" height="1202"/></svg></div>
+  <p class="eyebrow">WINNER, WINNER. WINGS FOR DINNER.</p>
+  <h2 id="reward-title">Now that’s tasty.</h2>
+  <p class="coupon-intro">Your next Archie’s visit just got better.</p>
+  <div class="coupon-ticket"><div class="ticket-top">ARCHIE MOORE’S <span>YOUR REWARD</span></div><div class="amount"><span id="reward-amount">15</span><span class="percent">%</span></div><div class="off">OFF YOUR NEXT VISIT</div><div class="perforation"></div><p id="reward-description">A little Moore to look forward to.</p><div class="demo-stamp">DEMO COUPON · NOT VALID FOR REDEMPTION</div></div>
+  <button id="again" class="again" type="button">Give it another spin <span aria-hidden="true">↻</span></button>
+  <p class="coupon-note">Just a taste of the Archie’s experience.</p>
+ </div>
+</dialog>
+<div id="confetti" class="confetti" aria-hidden="true"></div>
+<script src="app.js"></script>
+</body></html>
