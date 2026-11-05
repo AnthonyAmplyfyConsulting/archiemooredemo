@@ -10,7 +10,7 @@ Pull the lever down and release, tap the lever, or focus it and press Enter. The
 - Two matching symbols: **10% off**
 - No match: **5% off**
 
-The four symbols are buffalo wings, beer, celery, and the signature sauce bottle. Idle lights, lever movement, cabinet reflections, optional sound, replay, keyboard support, and reduced-motion handling are included.
+The four symbols are cherries, bells, BARs, and lucky sevens. Idle lights, lever movement, cabinet reflections, optional sound, replay, keyboard support, and reduced-motion handling are included.
 
 This is a visual, browser-only demo. Coupons are clearly marked as demo coupons and are not valid for redemption. There are no forms, accounts, databases, or external service integrations in the application.
 
@@ -33,6 +33,7 @@ Serve the repository root with any static website host. Use no framework or buil
 - `index.html`: game layout, mechanical lever, and coupon dialog.
 - `style.css`: responsive styling, idle effects, and win animations.
 - `app.js`: random results, five-second reel animation, interaction, and sound.
-- `assets/machine.webp`: approved machine artwork and source for the reel symbols.
+- `assets/machine.webp`: approved cabinet artwork.
+- `assets/slot-symbols.svg`: classic reel symbols.
 
 Google Fonts is used for optional typography; local font fallbacks are included. The game itself needs no API keys or backend.
